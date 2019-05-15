@@ -1,0 +1,159 @@
+\documentclass[natbib,12pt]{article}
+
+\usepackage[american]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{varioref}
+\usepackage[hidelinks]{hyperref}
+\usepackage[T1]{fontenc}
+
+\title{CISC 610-90- O-2018/Late Fall \linebreak Extra Credit \linebreak Time \/ space complexity analysis}
+
+\author{Youwei Lu}
+\date{}
+
+%\abstract{Time space complexity analysis}
+
+\begin{document}
+\maketitle
+	
+\section{algorithm A}
+	Initializing an empty {\tt DLinkedList} only creates two nodes and one int number, thus only costs constant time and space, so the time complexity in this step is
+	\begin{equation}
+		O(1),  \label{eqn:time1-1}
+	\end{equation}
+	and the space complexity is also 
+	\begin{equation}
+		O(1). \label{eqn:space1-1}
+	\end{equation}
+	Next step is to traverse and add each number in array to the first of list. Since {\tt addFirst} adds a node to the beginning of the list, and only costs constant time, the whole loop complexity is proportional to $n$. That is, in this step, time complexity is
+	\begin{equation}
+		O(n), \label{eqn:time1-2}
+	\end{equation}
+	and space complexity is
+	\begin{equation}
+		O(n) \label{eqn:space1-2}
+	\end{equation}
+	Next, print the list elements from the beginning, {\tt printNextList}. This step traverses every elements in list, but do not need extra space. So the time complexity is
+	\begin{equation}
+		O(n) \label{eqn:time1-3}
+	\end{equation}
+		Similarly, {\tt printPrevList} also traverses every elements in list, from tail to head this time, but no extra space needed, and the time complexity is
+	\begin{equation}
+		O(n) \label{eqn:time1-4}
+	\end{equation}
+	Summing up \eqref{eqn:time1-1} \eqref{eqn:time1-2} \eqref{eqn:time1-3} and \eqref{eqn:time1-4} leads to the time complexity of algorithm A:
+	\begin{equation}
+		O(1 + n + n + n) = O(1 + 3n) = O(n).
+	\end{equation}
+	The space complexity is the sum of \eqref{eqn:space1-1} and \eqref{eqn:space1-2}:
+	\begin{equation}
+		O(1 + n) = O(n).
+	\end{equation}
+
+\section{algorithm B}
+	Getting the size of list, {\tt count}, only returns the integer size, which is constant time and space operation. The time complexity is
+	\begin{equation}
+		O(1), \label{eqn:time2-1}
+	\end{equation}
+	and the space complexity is
+	\begin{equation}
+		O(1). \label{eqn:space2-1}
+	\end{equation}
+	Next, initializing all values in the $n \times n$ array would take both time and space to go through all elements in the array. That is, the time complexity is
+	\begin{equation}
+		O(n^2), \label{eqn:time2-2}
+	\end{equation}
+	and the space complexity is
+	\begin{equation}
+		O(n^2). \label{eqn:space2-2}
+	\end{equation}
+	In the dual loop, {\tt deleteFirst} simply delete the first element, which is constant operation, and no extra space needed. Since i only loops once, the dual loop actually acts as a single loop, the time complexity is 
+	\begin{equation}
+		O(n), \label{eqn:time2-3}
+	\end{equation}
+	and no extra space needed.
+	Now call the {\tt print} function. The function uses a dual loop to traverse the whole array and print all elements, which doesn't need extra space, but consumes time as
+	\begin{equation}
+		O(n^2). \label{eqn:time2-4}
+	\end{equation}
+	In sum, summing up \eqref{eqn:time2-1} \eqref{eqn:time2-2} \eqref{eqn:time2-3} and \eqref{eqn:time2-4}, one can get the time complexity of algorithm B:
+	\begin{equation}
+		O(1 + n^2 + n + n^2) = O(2n^2 + n) = O(n^2),
+	\end{equation}
+	while the space complexity can be obtained by the sum of \eqref{eqn:space2-1} and \eqref{eqn:space2-2}:
+	\begin{equation}
+		O(1 + n^2) = O(n^2).
+	\end{equation}	
+	
+\section{algorithm C}
+	Getting the size of list, {\tt count}, only returns the integer size, which is constant time and space operation. The time complexity is
+	\begin{equation}
+	O(1), \label{eqn:time3-1}
+	\end{equation}
+	and the space complexity is
+	\begin{equation}
+	O(1). \label{eqn:space3-1}
+	\end{equation}
+	Initializing is the same of initializing a {\tt DLinkedList}, which only costs constant time and space. The time complexity in this step is
+	\begin{equation}
+		O(1),  \label{eqn:time3-2}
+	\end{equation}
+	and the space complexity is also 
+	\begin{equation}
+		O(1). \label{eqn:space3-2}
+	\end{equation}
+	In the loop of $i$, the list first calls {\tt deleteLast}, and only costs $O(1)$ time to delete the last without extra space. Then push, the complexity is the same as {\tt DLinkedList.addFirst}, which just add one element to the head and both time and space consumption are constant. Therefore, the time complexity in the loop is 
+	\begin{equation}
+		O(n), \label{eqn:time3-3}
+	\end{equation}
+	and the complexity of time in the loop is also
+	\begin{equation}
+	O(n), \label{eqn:space3-9}
+	\end{equation}
+	Then, we run the {\tt action} function. First step is to get the stack size. It returns the size integer, so just a constant time and space operation. The time complexity is
+	\begin{equation}
+	O(1), \label{eqn:time3-4}
+	\end{equation}
+	and the space complexity is
+	\begin{equation}
+	O(1). \label{eqn:space3-3}
+	\end{equation}
+	Then an array is initialized, both linear time and space are needed. Then the time complexity is
+	\begin{equation}
+	O(n), \label{eqn:time3-5}
+	\end{equation}
+	and space complexity is
+	\begin{equation}
+	O(n) \label{eqn:space3-4}
+	\end{equation}
+	For the i loop to pop the stack. Since each {\tt pop} is constant time operation, the whole loop time complexity is
+	\begin{equation}
+	O(n), \label{eqn:time3-6}
+	\end{equation}
+	with no extra space.
+	Next, we call print in each iteration of $j$ loop. In the print function, {\tt print} is called in each h loop which traverses from $0$ to $j$. Therefore, the time cost in each print function is $O(j)$, and the time complexity in the $j$ loop is
+	\begin{equation}
+		O(0 + 1 + ... + n-1  + n) = O ( n^2 / 2 ) = O(n^2), \label{eqn:time3-7}
+	\end{equation}
+	with no extra space needed.
+	In sum, one can get Algorithm C's time complexity by adding up \eqref{eqn:time3-1} \eqref{eqn:time3-2} \eqref{eqn:time3-3} \eqref{eqn:time3-4} \eqref{eqn:time3-5} \eqref{eqn:time3-6} and \eqref{eqn:time3-7}:
+	\begin{equation}
+		O(1 + 1 + n + 1 + n + n + n^2) = O(n^2),
+	\end{equation}
+	while the space complexity can be get by adding \eqref{eqn:space3-1} \eqref{eqn:space3-2}  \eqref{eqn:space3-9} \eqref{eqn:space3-3} and \eqref{eqn:space3-4}
+	\begin{equation}
+		O(1 + 1 + n + 1 + n) = O(n).
+	\end{equation}
+	
+	
+\end{document}
+
+%
+% Please see the package documentation for more information
+% on the APA6 document class:
+%
+% http://www.ctan.org/pkg/apa6
+%
