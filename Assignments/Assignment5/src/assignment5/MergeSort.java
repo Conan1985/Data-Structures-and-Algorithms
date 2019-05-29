@@ -4,7 +4,6 @@ import java.util.Random;
 
 /**
  *
- * @author Youwei Lu
  * Assignment 5
  * CISC 610-90- O-2018/Late Fall - Data Structures & Algorithms
  *

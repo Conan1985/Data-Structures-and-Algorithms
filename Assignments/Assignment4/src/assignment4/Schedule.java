@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /**
  *
- * @author Youwei Lu
  * Assignment 4
  * CISC 610-90- O-2018/Late Fall - Data Structures & Algorithms
  *

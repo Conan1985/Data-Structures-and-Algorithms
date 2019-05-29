@@ -1,6 +1,5 @@
 /**
  *
- * @author Youwei Lu
  * Assignment 3
  * CISC 610-90- O-2018/Late Fall - Data Structures & Algorithms
  *

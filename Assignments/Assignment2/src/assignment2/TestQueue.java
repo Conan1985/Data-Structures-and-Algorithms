@@ -1,7 +1,6 @@
 /**
  *
  * @author Youwei Lu
- * Assignment 2
  * CISC 610-90- O-2018/Late Fall - Data Structures & Algorithms
  *
  * Test the correct working of each operation of QueueADT
